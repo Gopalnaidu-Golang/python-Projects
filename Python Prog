@@ -1,0 +1,28 @@
+Indentation
+Keywords
+single line comment and multiline comments
+
+input() and output() fun
+a = int(input()).   -- read data from keyboard
+print(a)
+a = input().split()
+sep = '\n'
+
+varibles
+Operators
+builtin-func. math and random modules
+lambda
+
+random.range()
+random.choises()
+
+list comprehention:builtin methods. index & reverse index. & slicing [:]
+a.reverse()
+a.pop()
+a=[ele * ele for ele in range(10)]. --expression iteration condition
+a=[ele * ele for ele in range(10) if ele%2 ==0 ] 
+
+tuple: immutable so first convert to list then manipulate values.
+list(tuple),tuple(list)
+set: no indexing,no slicing, unordered, mutable.duplicates not allowed if will give it will remove automatically.
+
