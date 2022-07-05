@@ -1,0 +1,86 @@
+EVENTS:
+locks pkg to acquire lock 
+email pkg to send email
+mapper pkg to import class objects
+config pkg to read config file
+gateways pkg
+constants
+logs
+from tornado import gen. used for asynch environment
+
+PKG used:
+import arrow 
+import pytz
+
+Declararions:
+sections_to_remind = [], sections_to_remind.append(section)
+interview_dates = set(),  interview_dates.add()
+substitutions = {},  substitutions.update(GcalTitle(interview_loop, first_section).fields)
+
+sorted_interview_sections = sorted(interview_loop.interview_sections, key=lambda x: x.start_at)
+        for section in sorted_interview_sections:
+            if section.deleted_at or section.interview_section_type.name not in NON_DEBRIEF_SECTION_TYPES:
+                continue
+                            if (after <= section.start_at <= before or
+               arrow.get(section.start_at).to(loop_config.timezone).date() in interview_dates):
+                interview_dates.add(arrow.get(section.start_at).to(loop_config.timezone).date())
+                sections_to_remind.append(section)
+
+        has_sent = False
+        for section in sections_to_remind:
+            if section.reminder_at:
+                has_sent = True
+                break
+       finally:
+        yield lock.unlock()
+       if acquired_lock is False:
+          raise LockTimeout
+          
+     Conversion:
+     string:  str(current_time)
+     
+     Exceptions:
+     try:
+     --
+     --
+     except locktimeout:
+     --
+     --
+     except Exception locktimeout as e:
+     
+     classes:
+     class GcalWatch(Model): from entity repository
+     class GcalWatchRepository(BaseRepository):  from  repositories repository
+     class InterviewLoopConfigurationMapper(object):  from mapper repository
+     class LockTimeout(Exception):
+      pass
+     @classmethod  --inside class
+    def from_store(cls, store, attendees_by_id=None, locations_by_id=None):
+        if not store:
+            return None
+            
+    MAIN CALL:        
+    if __name__ == '__main__':
+    clay_celery.start()
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    entity: class declaration
+    
+    class GcalWatch(Model):
+    id = IntType()
+    google_resource_id = StringType()
+    calendar_id = StringType()
+    person_id = IntType()
+    watch_id = StringType()
+    expires_at = DateTimeType()
+    sync_token = StringType()
+    created_at = DateTimeType()
+    updated_at = DateTimeType()
+     
