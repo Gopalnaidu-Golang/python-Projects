@@ -1,0 +1,21 @@
+ @classmethod
+    @async.context(pool=custom_pool)
+    def get_loop_ids_for_reminders(cls, start_at, end_at):
+        """returns the interview section ids that start within a date range for reminder emails"""
+        start_time = time.time()
+        q = (
+            Session.query(InterviewLoopStore.id)
+            .join(InterviewSectionStore)
+            .join(InterviewSectionTypeStore)
+            .filter(InterviewLoopStore.deleted_at.is_(None))
+            .filter(InterviewSectionStore.deleted_at.is_(None))
+            .filter(InterviewSectionStore.reminder_at.is_(None))
+            .filter(and_(
+                InterviewSectionStore.start_at >= start_at,
+                InterviewSectionStore.start_at <= end_at,
+                InterviewSectionTypeStore.name == INTERVIEW_SECTION_TYPE
+            ))
+        )
+        res = set(x[0] for x in q.all())
+        InterviewLoopRepository.api_timing('interview_loop.get_loop_ids_for_reminders', start_time)
+        return list(res)
