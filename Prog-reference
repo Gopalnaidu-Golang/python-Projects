@@ -16,7 +16,8 @@ Declararions:
 sections_to_remind = [], sections_to_remind.append(section)
 interview_dates = set(),  interview_dates.add()
 substitutions = {},  substitutions.update(GcalTitle(interview_loop, first_section).fields)
-
+  person_calendar_tuples = list()
+  
 sorted_interview_sections = sorted(interview_loop.interview_sections, key=lambda x: x.start_at)
         for section in sorted_interview_sections:
             if section.deleted_at or section.interview_section_type.name not in NON_DEBRIEF_SECTION_TYPES:
@@ -67,7 +68,9 @@ sorted_interview_sections = sorted(interview_loop.interview_sections, key=lambda
     
     
     
-    
+    CONDITION CHECK:
+    if loop.owner_id or all(isinstance(x, (int, long)) for x in args) or (len(args) > 2 and args[2] and ASSIGNED_OWNER_TYPE in args[2]):
+       person_ids.add(loop.owner_id)
     
     
     
