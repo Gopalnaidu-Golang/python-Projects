@@ -72,6 +72,26 @@ sorted_interview_sections = sorted(interview_loop.interview_sections, key=lambda
     
     
     entity: class declaration
+    Inheritence in python:
+    class InterviewLoopRepository(BaseRepository):
+    STORE_TYPE = InterviewLoopStore
+    ORDER_BY = InterviewLoopStore.requested_at
+
+    
+    A generator is a special type of function which does not return a single value, instead, it returns an iterator object with a sequence of values.
+    Ex:     if loop:
+                raise gen.Return(([loop], 1))
+            raise gen.Return(([], 0))
+  loops, _ = yield cls._perform_fetch(
+            read_func,
+            [loop_id],
+            None,
+            None,
+            None,
+            fetch_remote,
+            **kwargs
+        )
+        raise gen.Return(loops[0] if loops else None)
     
     class GcalWatch(Model):
     id = IntType()
